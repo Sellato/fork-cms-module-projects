@@ -24,7 +24,7 @@ class DeleteImage extends ActionDelete
         if ($this->id !== null && BackendProjectsImagesModel::exists($this->id)) {
             parent::execute();
             $this->record = (array) BackendProjectsImagesModel::get($this->id);
-            Model::deleteThumbnails(FRONTEND_FILES_PATH . '/' . $this->getModule() . '/images',  $this->record['filename']);
+            Model::deleteThumbnails(FRONTEND_FILES_PATH . '/' . $this->getModule() . '/images', $this->record['filename']);
 
             BackendProjectsImagesModel::delete($this->id);
 
@@ -34,9 +34,10 @@ class DeleteImage extends ActionDelete
             );
 
             $this->redirect(
-                Model::createURLForAction('Edit') . '&report=deleted&id=' . $this->record['project_id']  .'#tabImages'
+                Model::createURLForAction('Edit') . '&report=deleted&id=' . $this->record['project_id'] . '#tabImages'
             );
+        } else {
+            $this->redirect(Model::createURLForAction('Edit') . '&error=non-existing');
         }
-        else $this->redirect(Model::createURLForAction('Edit') . '&error=non-existing');
     }
 }

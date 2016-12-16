@@ -2,10 +2,8 @@
 
 namespace Frontend\Modules\Projects\Widgets;
 
-
 use Frontend\Core\Engine\Base\Widget as FrontendBaseWidget;
 use Frontend\Modules\Projects\Engine\Model as FrontendProjectsModel;
-
 
 class Project extends FrontendBaseWidget
 {
@@ -24,6 +22,8 @@ class Project extends FrontendBaseWidget
      */
     private function parse()
     {
-        if(isset($this->data['id'])) $this->tpl->assign('widgetProjectsProject', FrontendProjectsModel::getById($this->data['id']));
+        if (isset($this->data['id'])) {
+            $this->tpl->assign('widgetProjectsProject', FrontendProjectsModel::getById($this->data['id']));
+        }
     }
 }

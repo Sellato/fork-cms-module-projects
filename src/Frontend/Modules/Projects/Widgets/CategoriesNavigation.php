@@ -2,7 +2,6 @@
 
 namespace Frontend\Modules\Projects\Widgets;
 
-
 use Frontend\Core\Engine\Base\Widget as FrontendBaseWidget;
 use Frontend\Modules\Projects\Engine\Model as FrontendProjectsModel;
 use Frontend\Modules\Projects\Engine\Categories as FrontendProjectsCategoriesModel;

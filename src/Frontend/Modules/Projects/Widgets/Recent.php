@@ -2,10 +2,8 @@
 
 namespace Frontend\Modules\Projects\Widgets;
 
-
 use Frontend\Core\Engine\Base\Widget as FrontendBaseWidget;
 use Frontend\Modules\Projects\Engine\Model as FrontendProjectsModel;
-
 
 class Recent extends FrontendBaseWidget
 {
@@ -24,6 +22,6 @@ class Recent extends FrontendBaseWidget
      */
     private function parse()
     {
-        $this->tpl->assign('widgetProjectsRecent', FrontendProjectsModel::getAll( $this->get('fork.settings')->get('Projects', 'overview_num_items_recent', 3) ));
+        $this->tpl->assign('widgetProjectsRecent', FrontendProjectsModel::getAll($this->get('fork.settings')->get('Projects', 'overview_num_items_recent', 3)));
     }
 }
