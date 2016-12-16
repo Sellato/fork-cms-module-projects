@@ -1,0 +1,85 @@
+<div class="project-category">
+	<div class="project-category-intro">
+		{$item.intro}
+	</div>
+
+	<div class="overview-filter">
+		{form:projectsIndexForm}
+
+			<label for="resetFilter" class="reset {option:!searched}checked{/option:!searched}">
+				{$chkResetFilter}
+				<span>{$lblAll|ucfirst}</span>
+			</label>
+			
+			{iteration:categories}
+				<label for="{$categories.id}">
+					{$categories.chkCategories}
+					<span>{$categories.label}</span>
+				</label>
+			{/iteration:categories}
+
+		{/form:projectsIndexForm}
+	</div>
+
+	{option:items}
+		<div class="projects-grid">
+			{iteration:items}
+			<div class="projects-grid-item-outer projects-grid-size-{$items.size}">
+				<div class="projects-grid-item " style="background-image:url({$FRONTEND_FILES_URL}/Projects/image/800x/{$items.image})">
+					<a href="{$items.full_url}" title="{$items.name}">
+						<div class="inner">
+							<div class="inner-text">
+								<h4><span class="line-big">{$items.name}</span></h4>
+								{option:items.sub}
+								<p>{$items.sub}</p>
+								{/option:items.sub}
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="mobile-title">
+					<h5>
+						<a href="{$items.full_url}" title="{$items.name}">
+							{$items.name}
+						</a>
+					</h5>
+				</div>
+
+			</div>
+			{/iteration:items}
+		</div>
+	{/option:items}
+</div>
+
+
+{option:widgetProjectsCategories}
+	<div class="projects-categories link-hover">
+		<div class="grid">
+			{iteration:widgetProjectsCategories}
+			<div class="grid-item grid-item portable-one-half desk-one-quarter">
+				<h4><span class="line">{$widgetProjectsCategories.name}</span></h4>
+				<div class="js-equal-heights">
+					{$widgetProjectsCategories.description}
+				</div>
+				<p>
+					<a href="{$widgetProjectsCategories.full_url}" title="{$widgetProjectsCategories.name}">{$lblDiscoverMore|ucfirst}</a>
+				</p>
+			</div>
+			{/iteration:widgetProjectsCategories}
+
+			<div class="grid-item grid-item portable-one-half desk-one-quarter title-red">
+				<h4><span class="line">{$lblLetsTalkTitle|ucfirst}</span></h4>
+				<div class="js-equal-heights">
+					{$msgLetsTalk}
+				</div>
+				<p>
+					<a href="/{$FRONTEND_LANGUAGE}/contact" title="{$lblContact|ucfirst}">{$lblContact|ucfirst} ></a>
+				</p>
+			</div>
+
+		</div>
+	</div>
+{/option:widgetProjectsCategories}
+
+{include:Core/Layout/Templates/Pagination.tpl}
